@@ -18,11 +18,3 @@ Tugas PraUAS Mata Kuliah Pemrograman Berbasis Web untuk IoT
 4. Apa rencana yang akan dikerjakan berikutnya?
     - Mencari sensor untuk smart restaurant setelah sudah jelas disampaikan
     - Menyelesaikan aktuator yang mengambil aktuator lain sebagai input.
-
-## Progress 2 3/05/23
-1. Apa saja yang sudah dilakukan?
-bla bla bla
-
-## Progress 3 7/05/23
-1. Apa saja yang sudah dilakukan?
-blabla bla
