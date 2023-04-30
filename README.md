@@ -1,7 +1,7 @@
 # PraUAS
 Tugas PraUAS Mata Kuliah Pemrograman Berbasis Web untuk IoT
 
-## Progress 1 30/04/20
+## Progress 1 30/04/23
 1. Apa saja yang sudah dilakukan?
     - Node-red sensor simulator Sistem Smart Farm dan Smart Plantation 
     - Node-red UI sensor smart farm dan smart plantation
@@ -19,3 +19,10 @@ Tugas PraUAS Mata Kuliah Pemrograman Berbasis Web untuk IoT
     - Mencari sensor untuk smart restaurant setelah sudah jelas disampaikan
     - Menyelesaikan aktuator yang mengambil aktuator lain sebagai input.
 
+## Progress 2 3/05/23
+1. Apa saja yang sudah dilakukan?
+bla bla bla
+
+## Progress 3 7/05/23
+1. Apa saja yang sudah dilakukan?
+blabla bla

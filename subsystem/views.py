@@ -39,57 +39,57 @@ class ActuatorTemplateView(APIView):
         }
         return Response(data)
 
-class DashboardView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'home.html')
+# class DashboardView(View):
+#     def get(self, request, *args, **kwargs):
+#         return render(request, 'home.html')
 
 # Water Heating System
-class WaterTemperatureView(SensorTemplateView):
-    sensor_name = "Water Temperature"
+# class WaterTemperatureView(SensorTemplateView):
+#     sensor_name = "Water Temperature"
     
-class WaterUsageRateView(SensorTemplateView):
-    sensor_name = "Water Usage Rate"
+# class WaterUsageRateView(SensorTemplateView):
+#     sensor_name = "Water Usage Rate"
 
-class OutsideTemperatureView(SensorTemplateView):
-    sensor_name = "Outside Temperature"
+# class OutsideTemperatureView(SensorTemplateView):
+#     sensor_name = "Outside Temperature"
     
-class WaterHeaterView(ActuatorTemplateView):
-    actuator_name = "Water Heater"
-    sensor1_name = "Water Temperature"
-    sensor2_name = "Water Usage Rate"
-    sensor3_name = "Outside Temperature"
-    training_csv = "heater.csv"
+# class WaterHeaterView(ActuatorTemplateView):
+#     actuator_name = "Water Heater"
+#     sensor1_name = "Water Temperature"
+#     sensor2_name = "Water Usage Rate"
+#     sensor3_name = "Outside Temperature"
+#     training_csv = "heater.csv"
 
-# Fan Control System
-class RoomTemperatureView(SensorTemplateView):
-    sensor_name = "Room Temperature"
+# # Fan Control System
+# class RoomTemperatureView(SensorTemplateView):
+#     sensor_name = "Room Temperature"
     
-class RoomHumidityView(SensorTemplateView):
-    sensor_name = "Room Humidity"
+# class RoomHumidityView(SensorTemplateView):
+#     sensor_name = "Room Humidity"
     
-class RoomCO2View(SensorTemplateView):
-    sensor_name = "Room CO2"
+# class RoomCO2View(SensorTemplateView):
+#     sensor_name = "Room CO2"
     
-class VentilationFanView(ActuatorTemplateView):
-    actuator_name = "Ventilation Fan"
-    sensor1_name = "Room Temperature"
-    sensor2_name = "Room Humidity"
-    sensor3_name = "Room CO2"
-    training_csv = "fan.csv"
+# class VentilationFanView(ActuatorTemplateView):
+#     actuator_name = "Ventilation Fan"
+#     sensor1_name = "Room Temperature"
+#     sensor2_name = "Room Humidity"
+#     sensor3_name = "Room CO2"
+#     training_csv = "fan.csv"
     
-# Lighting Control System
-class LightLevelView(SensorTemplateView):
-    sensor_name = "Light Level"
+# # Lighting Control System
+# class LightLevelView(SensorTemplateView):
+#     sensor_name = "Light Level"
     
-class OccupancyView(SensorTemplateView):
-    sensor_name = "Occupancy"
+# class OccupancyView(SensorTemplateView):
+#     sensor_name = "Occupancy"
     
-class DaylightView(SensorTemplateView):
-    sensor_name = "Daylight"
+# class DaylightView(SensorTemplateView):
+#     sensor_name = "Daylight"
 
-class LightingSystemView(ActuatorTemplateView):
-    actuator_name = "Lighting System"
-    sensor1_name = "Light Level"
-    sensor2_name = "Occupancy"
-    sensor3_name = "Daylight"
-    training_csv = "light.csv"
+# class LightingSystemView(ActuatorTemplateView):
+#     actuator_name = "Lighting System"
+#     sensor1_name = "Light Level"
+#     sensor2_name = "Occupancy"
+#     sensor3_name = "Daylight"
+#     training_csv = "light.csv"
