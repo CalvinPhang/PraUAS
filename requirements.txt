@@ -1,0 +1,7 @@
+django
+djangorestframework
+paho-mqtt
+scikit-learn
+numpy
+pandas
+joblib

@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title> 
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  
+  
+</head>
+  
+<body class="container-fluid">
+  <center class="row" style="background-color: #800507; padding-bottom: 20px;">
+    <img src="{% static 'CIT.jpeg' %}" style="float: left; height: 100px;">
+    <img src="{% static 'IEE.png' %}" style="float: right; height: 100px;">
+    <h1 style="color: white"><b>Smart Building System Dashboard</b></h1>
+    <h2 style="color: white">Calvin Phangnesia | 202001309</h2>
+  </center>
+
+  <div class="row">
+    <center style="background-color: #D8D8D8;"><h1>Water Heating System</h1></center>
+    <div class="col-md-6">
+      <h3>Sensor</h3>
+      <h4>Water Temperature: <span id="water-temp"></span> &#176;C</h4>
+      <h4>Water Usage Rate: <span id="water-rate"></span> m^3/s</h4>
+      <h4>Outside Temperature: <span id="out-temp"></span> &#176;C</h4>
+    </div>
+    <div class="col-md-6">
+      <h3>Actuator</h3>
+      <h4>Water Heater: <span id="heater"></span> Watt</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <center style="background-color: #D8D8D8;"><h1>Fan Control System</h1></center>
+    <div class="col-md-6">
+      <h3>Sensor</h3>
+      <h4>Room Temperature: <span id="room-temp"></span> &#176;C</h4>
+      <h4>Room Humidity: <span id="room-hum"></span>%</h4>
+      <h4>Room CO2: <span id="room-co2"></span> ppm</h4>
+    </div>
+    <div class="col-md-6">
+      <h3>Actuator</h3>
+      <h4>Ventilation Fan: <span id="fan"></span> rpm</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <center style="background-color: #D8D8D8;"><h1>Lighting Control System</h1></center>
+    <div class="col-md-6">
+      <h3>Sensor</h3>
+      <h4>Light Level: <span id="light-level"></span> lux</h4>
+      <h4>Occupancy: <span id="occupancy"></span> person(s)</h4>
+      <h4>Daylight: <span id="daylight"></span> lux</h4>
+    </div>
+    <div class="col-md-6">
+      <h3>Actuator</h3>
+      <h4>Lighting System: <span id="lighting"></span> lux</h4>
+    </div>
+  </div>
+
+</body>
+<!-- {% for subsystem, detail in data.items %}
+    <div class="col">
+      <center style="background-color: #D8D8D8;"><h1>{{ subsystem }}</h1></center>
+      <div class="row">
+        {% for device_type, device in detail.items %}
+        <div class="col-md-6">
+          <center><h3>{{device_type}}</h3></center>
+          {% for name, value in device.items %}
+          <div class="col">
+            <center><h4>{{name}} = <span id="">{{value}}</span></h4></center>
+          </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %} -->
+
+<script>
+  function updateSensorValue(endpoint, id) {
+    $.ajax({
+      method: "GET",
+      url: endpoint,
+      success: function(data) {
+          var value = document.getElementById(id);
+          value.innerHTML = data.value;
+      },
+      error: function(error_data) {
+          console.log(error_data);
+      }
+    })
+  }
+
+  function updateActuatorState(endpoint, id) {
+    $.ajax({
+      method: "GET",
+      url: endpoint,
+      success: function(data) {
+          var state = document.getElementById(id);
+          state.innerHTML = data.state;
+      },
+      error: function(error_data) {
+          console.log(error_data);
+      }
+    })
+  }
+
+  setInterval(function(){
+    updateSensorValue('/sensor/water-temp', 'water-temp');
+    updateSensorValue('/sensor/water-rate', 'water-rate');
+    updateSensorValue('/sensor/out-temp', 'out-temp');
+    updateActuatorState('/actuator/heater', 'heater');
+
+    updateSensorValue('/sensor/room-temp', 'room-temp');
+    updateSensorValue('/sensor/room-hum', 'room-hum');
+    updateSensorValue('/sensor/room-co2', 'room-co2');
+    updateActuatorState('/actuator/fan', 'fan');
+
+    updateSensorValue('/sensor/light-level', 'light-level');
+    updateSensorValue('/sensor/occupancy', 'occupancy');
+    updateSensorValue('/sensor/daylight', 'daylight');
+    updateActuatorState('/actuator/lighting', 'lighting');
+  }, 2000);
+
+</script>
+<style>
+  .containers {
+    padding: 20px;
+  }
+</style>
