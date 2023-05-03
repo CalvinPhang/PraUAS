@@ -1,0 +1,64 @@
+Smart Farm
+Subsistem1: Susu Hewani dan Telur
+- Yolk Color Hue Sensor: 0 - 180 H degrees
+	Identify egg quality
+- Ammonia detection: 0 - 100 ppm
+	Identify spoilage
+- Dairy bacterial: 0 - 1000 CFU/mL
+	It can help identify potential spoilage or contamination issues, ensuring that the dairy product is safe for 	consumption.
+- Air Purifier: 0 - 100 m3/h 
+	It can help prevent the spread of bacteria, viruses, and other airborne contaminants that can affect the 	quality and safety of Dairy and Egg products.
+
+Subsistem2: Daging Merah
+- Humidity: 0 - 100 percent RH
+	monitor humidity to prevent the growth of bacteria and mold
+- Ozone sensor: 0 - 100 ppb
+	identify the sanitazion of meat
+- Gas sensor: 0 - 100 ppm
+	identify spoilage
+- Water Misting: 0 - 100 ml/min
+	maintain humidity
+
+Subsistem3: Daging Putih
+- Near-infrared (NIR) spectroscopy (fat-content sensor) sensor: 0 - 50 % fat content
+	identify fat content
+- Impedance sensor (presense of bacteria): 0 - 10 ohms
+	detect presence of bacteria
+- pH sensor: 0 - 14 pH
+	identify meat acidity
+- Vinegar Sprayer (reduce PH): 0 - 100% flow rate
+	maintain pH
+
+Smart Plantation
+Subsistem4: Beras, Gandum, Jagung
+- Hyperspectral imaging sensor (moisture of grains): 0 - 30 %\
+- Acoustic sensor (texture measurement): 0 - 100 N/m²
+- Capacitive sensor (density measurement): 0 - 1000 kg/m³
+- Infrared heater: 0 - 100% heat emission (control moisture)
+Subsistem5: Sayuran
+- Chlorophyll fluorescence sensor (photosynthetic activity and stress level): 0-100 AU
+- Acoustic sensor (freshness): 0-100% freshness score
+- Temperature Sensor: -40°C to 125°C
+- LED Grow Light (promote veg growth): 0-1000 lumens
+Subsistem6: Buah-buahan
+- Weight sensor: 0 - 5000 g
+- ethylene gas sensor (ripeness):  0-1000 ppm
+- Fluorescence spectrometer (sweetness): 0-100% sweetness
+- Humidifier: 0-100% RH (maintain humidity)
+
+Smart Restaurant
+Subsistem7: Deteksi Musim
+- Soil moisture sensor: 0-100%
+- UV index sensor: 0-15 UV index
+- Wind direction sensor: 0-360 degrees
+- HVAC: 0-100 %
+Subsistem8: Deteksi Hasil Penjualan Berfluktuasi
+- Ambient noise sensor: 40-90 dB
+- Table turnover sensor: 15-60 min/table
+- Wait time sensor: 0-30 min
+- Estimated sales: 0-1000 dollars
+Subsistem9: Deteksi jumlah pengunjung restoran.
+- Smell intensity sensor: 0-1000 ppm
+- CO2 Concentration: 350-5000 ppm
+- Dishwashing Frequency: 1-60 min/dish
+- total number of customer: 0-200 customers

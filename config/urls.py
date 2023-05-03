@@ -24,4 +24,4 @@ urlpatterns = [
     path("", include("subsystem.urls"))
 ]
 
-# mqtt.client.loop_start()
+mqtt.client.loop_start()

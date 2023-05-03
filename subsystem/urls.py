@@ -5,6 +5,8 @@ from . import views
 urlpatterns = [
     # path('', views.DashboardView.as_view()),
     
+    
+    
     # Water Heater System
     # path('sensor/water-temp', views.WaterTemperatureView.as_view()),
     # path('sensor/water-rate', views.WaterUsageRateView.as_view()),
