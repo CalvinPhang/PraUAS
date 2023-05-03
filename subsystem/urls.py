@@ -3,25 +3,59 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # path('', views.DashboardView.as_view()),
+    path('', views.DashboardView.as_view()),
     
+    # Susu Hewani dan Telur
+    path('sensor/yolk', views.YolkColorView.as_view()),
+    path('sensor/ammonia', views.AmmoniaView.as_view()),
+    path('sensor/bacteria', views.DairyBacterialView.as_view()),
+    path('actuator/purifier', views.AirPurifierView.as_view()),
     
+    # Daging Merah
+    path('sensor/humidity', views.HumidityView.as_view()),
+    path('sensor/ozone', views.OzoneView.as_view()),
+    path('sensor/gas', views.GasView.as_view()),
+    path('actuator/misting', views.WaterMistingView.as_view()),
     
-    # Water Heater System
-    # path('sensor/water-temp', views.WaterTemperatureView.as_view()),
-    # path('sensor/water-rate', views.WaterUsageRateView.as_view()),
-    # path('sensor/out-temp', views.OutsideTemperatureView.as_view()),
-    # path('actuator/heater', views.WaterHeaterView.as_view()),
+    # Daging Putih
+    path('sensor/fat', views.NIRView.as_view()),
+    path('sensor/impedance', views.ImpedanceView.as_view()),
+    path('sensor/ph', views.pHView.as_view()),
+    path('actuator/vinegar', views.VinegarSprayerView.as_view()),
     
-    # # Fan Control System
-    # path('sensor/room-temp', views.RoomTemperatureView.as_view()),
-    # path('sensor/room-hum', views.RoomHumidityView.as_view()),
-    # path('sensor/room-co2', views.RoomCO2View.as_view()),
-    # path('actuator/fan', views.VentilationFanView.as_view()),
+    # Beras, Gandum, Jagung
+    path('sensor/moisture', views.HyperspectralView.as_view()),
+    path('sensor/texture', views.AcousticView.as_view()),
+    path('sensor/density', views.CapacitiveView.as_view()),
+    path('actuator/heater', views.InfraredHeaterView.as_view()),
     
-    # # Lighting Control System 
-    # path('sensor/light-level', views.LightLevelView.as_view()),
-    # path('sensor/occupancy', views.OccupancyView.as_view()),
-    # path('sensor/daylight', views.DaylightView.as_view()),
-    # path('actuator/lighting', views.LightingSystemView.as_view()),
+    # Sayuran
+    path('sensor/activity', views.ChlorophyllView.as_view()),
+    path('sensor/ethylene', views.EthyleneView.as_view()),
+    path('sensor/temperature', views.TemperatureView.as_view()),
+    path('actuator/growlight', views.LEDGrowLightView.as_view()),
+    
+    # Buah-buahan
+    path('sensor/weight', views.WeightView.as_view()),
+    path('sensor/maturity', views.MaturityView.as_view()),
+    path('sensor/ripeness', views.SpectrometerView.as_view()),
+    path('actuator/humidifier', views.HumidifierView.as_view()),
+    
+    # Deteksi Musim
+    path('sensor/soil', views.SoilView.as_view()),
+    path('sensor/uv', views.UVView.as_view()),
+    path('sensor/wind', views.WindView.as_view()),
+    path('actuator/hvac', views.HVACView.as_view()),
+    
+    # Deteksi Hasil Penjualan Berfluktuasi
+    path('sensor/noise', views.NoiseView.as_view()),
+    path('sensor/turnover', views.TurnoverView.as_view()),
+    path('sensor/wait', views.WaitView.as_view()),
+    path('actuator/sales', views.SalesView.as_view()),
+    
+    # Deteksi Jumlah Pengunjung Restoran
+    path('sensor/smell', views.SmellView.as_view()),
+    path('sensor/co2', views.CO2View.as_view()),
+    path('sensor/dish', views.DishView.as_view()),
+    path('actuator/customer', views.CustomerView.as_view()),
 ]
