@@ -10,15 +10,16 @@ Tugas PraUAS Mata Kuliah Pemrograman Berbasis Web untuk IoT
     - sensor simulator and ui for smart restaurant
     - beautify node-red ui
     - machine learning untuk tiap subsystem (untuk aktuator pabrik dan aktuator yang mengambil input dari ketiga aktuator pabrik masih dipikirkan)
+    - Django UI
     ![](node_red_dashboard.png)
     ![](node_red_pabrik_1.png)
     ![](node_red_pabrik_2.png)
     ![](node_red_pabrik_3.png)
+    ![](django_ui.png)
 2. Apa saja kendala yang dihadapi?
-    - Masih masalah sensor dan aktuator yang banyak dan perlu saling terkait. Menghabiskan sebagian besar waktu hanya untuk mencari sensor dan aktuator yang cocok.
+    - Mencari UI yang enak dilihat dan simpel diimplementasi
 3. Apa yang sudah dilakukan untuk mengatasi kendala tersebut?
-    - cari di chatgpt dan konfirmasi di google 
+    - cari di internet via pinterest, dribbble
 4. Apa rencana yang akan dikerjakan berikutnya?
-    - GUI django
-    - aktuator gabungan
+    - Django UI
 
