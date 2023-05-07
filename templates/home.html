@@ -18,74 +18,177 @@
   
 </head>
   
-<body class="container-fluid">
-  <center class="row" style="background-color: #800507; padding-bottom: 20px;">
-    <img src="{% static 'CIT.jpeg' %}" style="float: left; height: 100px;">
-    <img src="{% static 'IEE.png' %}" style="float: right; height: 100px;">
-    <h1 style="color: white"><b>Smart Building System Dashboard</b></h1>
-    <h2 style="color: white">Calvin Phangnesia | 202001309</h2>
+<body>
+  <center class="row" style="background-color: #002B5B; padding-bottom: 20px;">
+    <img src="{% static 'CIT.jpeg' %}" style="float: left; height: 75px; margin-left: 40px;">
+    <img src="{% static 'IEE.png' %}" style="float: right; height: 75px; margin-right: 40px;">
+    <h1 style="color: white"><b>Factory System Dashboard</b></h1>
   </center>
 
-  <div class="row">
-    <center style="background-color: #D8D8D8;"><h1>Water Heating System</h1></center>
-    <div class="col-md-6">
-      <h3>Sensor</h3>
-      <h4>Water Temperature: <span id="water-temp"></span> &#176;C</h4>
-      <h4>Water Usage Rate: <span id="water-rate"></span> m^3/s</h4>
-      <h4>Outside Temperature: <span id="out-temp"></span> &#176;C</h4>
-    </div>
-    <div class="col-md-6">
-      <h3>Actuator</h3>
-      <h4>Water Heater: <span id="heater"></span> Watt</h4>
-    </div>
-  </div>
 
-  <div class="row">
-    <center style="background-color: #D8D8D8;"><h1>Fan Control System</h1></center>
-    <div class="col-md-6">
-      <h3>Sensor</h3>
-      <h4>Room Temperature: <span id="room-temp"></span> &#176;C</h4>
-      <h4>Room Humidity: <span id="room-hum"></span>%</h4>
-      <h4>Room CO2: <span id="room-co2"></span> ppm</h4>
-    </div>
-    <div class="col-md-6">
-      <h3>Actuator</h3>
-      <h4>Ventilation Fan: <span id="fan"></span> rpm</h4>
-    </div>
-  </div>
 
-  <div class="row">
-    <center style="background-color: #D8D8D8;"><h1>Lighting Control System</h1></center>
-    <div class="col-md-6">
-      <h3>Sensor</h3>
-      <h4>Light Level: <span id="light-level"></span> lux</h4>
-      <h4>Occupancy: <span id="occupancy"></span> person(s)</h4>
-      <h4>Daylight: <span id="daylight"></span> lux</h4>
-    </div>
-    <div class="col-md-6">
-      <h3>Actuator</h3>
-      <h4>Lighting System: <span id="lighting"></span> lux</h4>
-    </div>
-  </div>
 
-</body>
-<!-- {% for subsystem, detail in data.items %}
-    <div class="col">
-      <center style="background-color: #D8D8D8;"><h1>{{ subsystem }}</h1></center>
-      <div class="row">
-        {% for device_type, device in detail.items %}
-        <div class="col-md-6">
-          <center><h3>{{device_type}}</h3></center>
-          {% for name, value in device.items %}
-          <div class="col">
-            <center><h4>{{name}} = <span id="">{{value}}</span></h4></center>
-          </div>
-          {% endfor %}
-        </div>
-        {% endfor %}
+  <div style="background-color: #1A5F7A; padding: 1px">
+    <center><h1 style="color: white">Smart Farm</h1></center>
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Susu Hewani dan Telur</h2></center></div>
+      <div class="col-md-3">
+        <h3>Yolk Color Hue: <span id="yolk"></span> H&#176;</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Ammonia: <span id="ammonia"></span> ppm</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Dairy Bacterial: <span id="bacteria"></span> CFU/mL</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Air Purifier: <span id="purifier"></span> m<sup>3</sup>/h</h3>
       </div>
     </div>
-    {% endfor %} -->
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Daging Merah</h2></center></div>
+      <div class="col-md-3">
+        <h3>Humidity: <span id="humidity"></span> % RH</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Ozone: <span id="ozone"></span> ppb</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Gas: <span id="gas"></span> ppm</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Water Misting: <span id="misting"></span> ml/min</h3>
+      </div>
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Daging Putih</h2></center></div>
+      <div class="col-md-3">
+        <h3>Fat Content: <span id="fat"></span> %</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Impedance: <span id="impedance"></span> ohms</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Acidity: <span id="ph"></span> pH</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Vinegar Sprayer: <span id="vinegar"></span> %</h3>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div style="background-color: #159895; padding: 1px">
+    <center><h1 style="color: white">Smart Plantation</h1></center>
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Sumber Karbohidrat</h2></center></div>
+      <div class="col-md-3">
+        <h3>Moisture: <span id="moisture"></span> %</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Texture: <span id="texture"></span> N/m²</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Density: <span id="density"></span> kg/m³</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Infrared Heater: <span id="heater"></span> m<sup>3</sup>/h</h3>
+      </div>
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Sayuran</h2></center></div>
+      <div class="col-md-3">
+        <h3>Photosynthetic Activity: <span id="activity"></span> AU</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Ethylene: <span id="ethylene"></span> ppm</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Temperature: <span id="temperature"></span> &#176;C</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Grow Light: <span id="growlight"></span> lumens</h3>
+      </div>
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Buah-buahan</h2></center></div>
+      <div class="col-md-3">
+        <h3>Fat Content: <span id="weight"></span> %</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Impedance: <span id="maturity"></span> ohms</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Acidity: <span id="ripeness"></span> pH</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Vinegar Sprayer: <span id="humidifier"></span> %</h3>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div style="background-color: #57C5B6; padding: 1px">
+    <center><h1 style="color: white">Smart Restaurant</h1></center>
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Deteksi Musim</h2></center></div>
+      <div class="col-md-3">
+        <h3>Soil moisture: <span id="soil"></span> %</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>UV index: <span id="uv"></span></h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Wind direction: <span id="wind"></span> mph</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>HVAC: <span id="hvac"></span> m<sup>3</sup> %</h3>
+      </div> 
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Deteksi Hasil Penjualan Berfluktuasi</h2></center></div>
+      <div class="col-md-3">
+        <h3>Ambient noise: <span id="noise"></span> dB</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Table turnover: <span id="turnover"></span> min/table</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Wait time: <span id="wait"></span> min</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Estimated sales: <span id="sales"></span> dollars</h3>
+      </div>
+    </div>
+  
+    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+      <div><center><h2>Deteksi Jumlah Pengunjung Restoran</h2></center></div>
+      <div class="col-md-3">
+        <h3>Smell Intensity: <span id="smell"></span> ppm</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>CO2 Concentration: <span id="co2"></span> ppm</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Dishwashing Frequency: <span id="dish"></span> min/dish</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>Total Number of Customer: <span id="customer"></span></h3>
+      </div>
+    </div>
+  </div>
+
+
+</body>
 
 <script>
   function updateSensorValue(endpoint, id) {
@@ -117,25 +220,58 @@
   }
 
   setInterval(function(){
-    updateSensorValue('/sensor/water-temp', 'water-temp');
-    updateSensorValue('/sensor/water-rate', 'water-rate');
-    updateSensorValue('/sensor/out-temp', 'out-temp');
+    updateSensorValue('/sensor/yolk', 'yolk');
+    updateSensorValue('/sensor/ammonia', 'ammonia');
+    updateSensorValue('/sensor/bacteria', 'bacteria');
+    updateActuatorState('/actuator/purifier', 'purifier');
+
+    updateSensorValue('/sensor/humidity', 'humidity');
+    updateSensorValue('/sensor/ozone', 'ozone');
+    updateSensorValue('/sensor/gas', 'gas');
+    updateActuatorState('/actuator/fan', 'misting');
+
+    updateSensorValue('/sensor/fat', 'fat');
+    updateSensorValue('/sensor/impedance', 'impedance');
+    updateSensorValue('/sensor/ph', 'ph');
+    updateActuatorState('/actuator/vinegar', 'vinegar');
+
+    updateSensorValue('/sensor/moisture', 'moisture');
+    updateSensorValue('/sensor/texture', 'texture');
+    updateSensorValue('/sensor/density', 'density');
     updateActuatorState('/actuator/heater', 'heater');
 
-    updateSensorValue('/sensor/room-temp', 'room-temp');
-    updateSensorValue('/sensor/room-hum', 'room-hum');
-    updateSensorValue('/sensor/room-co2', 'room-co2');
-    updateActuatorState('/actuator/fan', 'fan');
+    updateSensorValue('/sensor/activity', 'activity');
+    updateSensorValue('/sensor/ethylene', 'ethylene');
+    updateSensorValue('/sensor/temperature', 'temperature');
+    updateActuatorState('/actuator/growlight', 'growlight');
 
-    updateSensorValue('/sensor/light-level', 'light-level');
-    updateSensorValue('/sensor/occupancy', 'occupancy');
-    updateSensorValue('/sensor/daylight', 'daylight');
-    updateActuatorState('/actuator/lighting', 'lighting');
+    updateSensorValue('/sensor/weight', 'weight');
+    updateSensorValue('/sensor/maturity', 'maturity');
+    updateSensorValue('/sensor/ripeness', 'ripeness');
+    updateActuatorState('/actuator/humidifier', 'humidifier');
+
+    updateSensorValue('/sensor/soil', 'soil');
+    updateSensorValue('/sensor/uv', 'uv');
+    updateSensorValue('/sensor/wind', 'wind');
+    updateActuatorState('/actuator/hvac', 'hvac');
+
+    updateSensorValue('/sensor/noise', 'noise');
+    updateSensorValue('/sensor/turnover', 'turnover');
+    updateSensorValue('/sensor/wait', 'wait');
+    updateActuatorState('/actuator/sales', 'sales');
+
+    updateSensorValue('/sensor/smell', 'smell');
+    updateSensorValue('/sensor/co2', 'co2');
+    updateSensorValue('/sensor/dish', 'dish');
+    updateActuatorState('/actuator/customer', 'customer');
   }, 2000);
 
 </script>
 <style>
   .containers {
     padding: 20px;
+  }
+  h3 {
+    text-align: center;
   }
 </style>
