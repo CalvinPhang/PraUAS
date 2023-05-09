@@ -22,3 +22,8 @@ fruit_model = BaseLinearRegression('fruit.csv')
 weather_model = BaseLinearRegression('musim.csv')
 sales_model = BaseLinearRegression('sales.csv')
 customer_model = BaseLinearRegression('customer.csv')
+
+power_model = BaseLinearRegression('power.csv')
+harvest_model = BaseLinearRegression('harvest.csv')
+stocks_model = BaseLinearRegression('stocks.csv')
+performance_model = BaseLinearRegression('performance.csv')

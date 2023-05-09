@@ -62,3 +62,10 @@ Subsistem9: Deteksi jumlah pengunjung restoran.
 - CO2 Concentration: 350-5000 ppm
 - Dishwashing Frequency: 1-60 min/dish
 - total number of customer: 0-200 customers
+
+Sensor pabrik
+Smart Farm - Powermeter: 0-10000 kwH
+Smart Plantation - Hasil Panen: 0-5 ton/hari 
+Smart Restaurant - Harga Saham: 50-500 rupiah/saham
+
+Performance Score: 0-10 / 10

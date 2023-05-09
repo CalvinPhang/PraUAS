@@ -58,4 +58,9 @@ urlpatterns = [
     path('sensor/co2', views.CO2View.as_view()),
     path('sensor/dish', views.DishView.as_view()),
     path('actuator/customer', views.CustomerView.as_view()),
+    
+    path('actuator/power', views.PowerView.as_view()),
+    path('actuator/harvest', views.HarvestView.as_view()),
+    path('actuator/stock', views.StockView.as_view()),
+    path('actuator/performance', views.PerformanceView.as_view()),
 ]

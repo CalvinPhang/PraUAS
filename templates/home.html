@@ -12,9 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   
   <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
-  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   
 </head>
   
@@ -23,26 +21,34 @@
     <img src="{% static 'CIT.jpeg' %}" style="float: left; height: 75px; margin-left: 40px;">
     <img src="{% static 'IEE.png' %}" style="float: right; height: 75px; margin-right: 40px;">
     <h1 style="color: white"><b>Factory System Dashboard</b></h1>
+    <h2 style="color: white">Perfomance: <span id="performance"></span>/10</h2>
   </center>
 
 
 
 
   <div style="background-color: #1A5F7A; padding: 1px">
-    <center><h1 style="color: white">Smart Farm</h1></center>
+    <center>
+      <h1 style="color: white">Smart Farm</h1>
+      <h3 style="color: white">Power: <span id="power"></span> kWh</h3>
+    </center>
     <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
       <div><center><h2>Susu Hewani dan Telur</h2></center></div>
       <div class="col-md-3">
         <h3>Yolk Color Hue: <span id="yolk"></span> H&#176;</h3>
+        <canvas id="yolk-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Ammonia: <span id="ammonia"></span> ppm</h3>
+        <canvas id="ammonia-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Dairy Bacterial: <span id="bacteria"></span> CFU/mL</h3>
+        <canvas id="bacteria-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Air Purifier: <span id="purifier"></span> m<sup>3</sup>/h</h3>
+        <canvas id="purifier-chart"></canvas>
       </div>
     </div>
   
@@ -50,15 +56,19 @@
       <div><center><h2>Daging Merah</h2></center></div>
       <div class="col-md-3">
         <h3>Humidity: <span id="humidity"></span> % RH</h3>
+        <canvas id="humidity-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Ozone: <span id="ozone"></span> ppb</h3>
+        <canvas id="ozone-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Gas: <span id="gas"></span> ppm</h3>
+        <canvas id="gas-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Water Misting: <span id="misting"></span> ml/min</h3>
+        <canvas id="misting-chart"></canvas>
       </div>
     </div>
   
@@ -66,15 +76,19 @@
       <div><center><h2>Daging Putih</h2></center></div>
       <div class="col-md-3">
         <h3>Fat Content: <span id="fat"></span> %</h3>
+        <canvas id="fat-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Impedance: <span id="impedance"></span> ohms</h3>
+        <canvas id="impedance-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Acidity: <span id="ph"></span> pH</h3>
+        <canvas id="ph-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Vinegar Sprayer: <span id="vinegar"></span> %</h3>
+        <canvas id="vinegar-chart"></canvas>
       </div>
     </div>
   </div>
@@ -82,20 +96,27 @@
 
 
   <div style="background-color: #159895; padding: 1px">
-    <center><h1 style="color: white">Smart Plantation</h1></center>
+    <center>
+      <h1 style="color: white">Smart Plantation</h1>
+      <h3 style="color: white">Hasil Panen: <span id="harvest"></span> ton/hari</h3>
+    </center>
     <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
       <div><center><h2>Sumber Karbohidrat</h2></center></div>
       <div class="col-md-3">
         <h3>Moisture: <span id="moisture"></span> %</h3>
+        <canvas id="moisture-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Texture: <span id="texture"></span> N/m²</h3>
+        <canvas id="texture-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Density: <span id="density"></span> kg/m³</h3>
+        <canvas id="density-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Infrared Heater: <span id="heater"></span> m<sup>3</sup>/h</h3>
+        <canvas id="heater-chart"></canvas>
       </div>
     </div>
   
@@ -103,15 +124,19 @@
       <div><center><h2>Sayuran</h2></center></div>
       <div class="col-md-3">
         <h3>Photosynthetic Activity: <span id="activity"></span> AU</h3>
+        <canvas id="activity-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Ethylene: <span id="ethylene"></span> ppm</h3>
+        <canvas id="ethylene-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Temperature: <span id="temperature"></span> &#176;C</h3>
+        <canvas id="temperature-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Grow Light: <span id="growlight"></span> lumens</h3>
+        <canvas id="growlight-chart"></canvas>
       </div>
     </div>
   
@@ -119,15 +144,19 @@
       <div><center><h2>Buah-buahan</h2></center></div>
       <div class="col-md-3">
         <h3>Fat Content: <span id="weight"></span> %</h3>
+        <canvas id="weight-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Impedance: <span id="maturity"></span> ohms</h3>
+        <canvas id="maturity-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Acidity: <span id="ripeness"></span> pH</h3>
+        <canvas id="ripeness-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Vinegar Sprayer: <span id="humidifier"></span> %</h3>
+        <canvas id="humidifier-chart"></canvas>
       </div>
     </div>
   </div>
@@ -137,20 +166,27 @@
 
 
   <div style="background-color: #57C5B6; padding: 1px">
-    <center><h1 style="color: white">Smart Restaurant</h1></center>
+    <center>
+      <h1 style="color: white">Smart Restaurant</h1>
+      <h3 style="color: white">Harga Saham: <span id="stock"></span> rupiah</h3>
+    </center>
     <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
       <div><center><h2>Deteksi Musim</h2></center></div>
       <div class="col-md-3">
         <h3>Soil moisture: <span id="soil"></span> %</h3>
+        <canvas id="soil-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>UV index: <span id="uv"></span></h3>
+        <canvas id="uv-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Wind direction: <span id="wind"></span> mph</h3>
+        <canvas id="wind-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>HVAC: <span id="hvac"></span> m<sup>3</sup> %</h3>
+        <canvas id="hvac-chart"></canvas>
       </div> 
     </div>
   
@@ -158,15 +194,19 @@
       <div><center><h2>Deteksi Hasil Penjualan Berfluktuasi</h2></center></div>
       <div class="col-md-3">
         <h3>Ambient noise: <span id="noise"></span> dB</h3>
+        <canvas id="noise-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Table turnover: <span id="turnover"></span> min/table</h3>
+        <canvas id="turnover-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Wait time: <span id="wait"></span> min</h3>
+        <canvas id="wait-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Estimated sales: <span id="sales"></span> dollars</h3>
+        <canvas id="sales-chart"></canvas>
       </div>
     </div>
   
@@ -174,15 +214,19 @@
       <div><center><h2>Deteksi Jumlah Pengunjung Restoran</h2></center></div>
       <div class="col-md-3">
         <h3>Smell Intensity: <span id="smell"></span> ppm</h3>
+        <canvas id="smell-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>CO2 Concentration: <span id="co2"></span> ppm</h3>
+        <canvas id="co2-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Dishwashing Frequency: <span id="dish"></span> min/dish</h3>
+        <canvas id="dish-chart"></canvas>
       </div>
       <div class="col-md-3">
         <h3>Total Number of Customer: <span id="customer"></span></h3>
+        <canvas id="customer-chart"></canvas>
       </div>
     </div>
   </div>
@@ -191,6 +235,77 @@
 </body>
 
 <script>
+  function initializeGraph(chart_var, endpoint, id, color){
+    $.ajax({
+      method: "GET",
+      url: endpoint,
+      success: function(data) {
+        drawLineGraph(chart_var, data, id, color);
+      },
+      error: function(error_data) {
+        console.log(error_data);
+      }
+    })
+  }
+
+  function drawLineGraph(chart_var, data, id, color) {
+    var labels = data.time_data;
+    var chartLabel = data.chart_label;
+    var chartdata = data.chart_data;
+    var ctx = document.getElementById(id).getContext('2d');
+    window[chart_var] = new Chart(ctx, {
+        // The type of chart we want to create
+      type: 'line',
+  
+        // The data for our dataset
+      data: {
+        labels: labels,
+        datasets: [{
+          label: chartLabel,
+          backgroundColor: 'rgb(255, 100, 200, 0)',
+          borderColor: color,
+          data: chartdata,
+        }]
+      },
+
+      // Configuration options go here
+      options: {
+        elements: {
+            line: {
+              tension: 0
+            }
+          },
+        scales: {
+          xAxes: [{
+            display: true,
+          }],
+          yAxes: [{
+              ticks: {
+                  // suggestedMin: 30,
+                  // suggestedMax: 150,
+              }
+          }]
+        }
+      }
+  
+    });
+  }
+
+  function updateGraph(chart_var, endpoint) {
+    $.ajax({
+      method: "GET",
+      url: endpoint,
+      success: function(data) {
+          window[chart_var].data.labels = data.time_data;
+          window[chart_var].data.datasets[0].data = data.chart_data;
+          window[chart_var].update();
+      },
+      error: function(error_data) {
+          console.log(error_data);
+      }
+    })
+  }
+
   function updateSensorValue(endpoint, id) {
     $.ajax({
       method: "GET",
@@ -219,6 +334,106 @@
     })
   }
 
+  var yolk_graph;
+  var ammonia_graph;
+  var bacteria_graph;
+  var purifier_graph;
+
+  var humidity_graph;
+  var ozone_graph;
+  var gas_graph;
+  var misting_graph;
+
+  var fat_graph;
+  var impedance_graph;
+  var ph_graph;
+  var vinegar_graph;
+
+  var moisture_graph;
+  var texture_graph;
+  var density_graph;
+  var heater_graph;
+
+  var activity_graph;
+  var ethylene_graph;
+  var temperature_graph;
+  var growlight_graph;
+
+  var weight_graph;
+  var maturity_graph;
+  var ripeness_graph;
+  var humidifier_graph;
+
+  var soil_graph;
+  var uv_graph;
+  var wind_graph;
+  var hvac_graph;
+
+  var noise_graph;
+  var turnover_graph;
+  var wait_graph;
+  var sales_graph;
+
+  var smell_graph;
+  var co2_graph;
+  var dish_graph;
+  var customer_graph;
+
+  var power_graph;
+  var harvest_graph;
+  var stock_graph;
+  var performance_graph;
+
+  initializeGraph('yolk_graph', '/sensor/yolk', 'yolk-chart', 'rgb(36, 89, 83)');
+  initializeGraph('ammonia_graph', '/sensor/ammonia', 'ammonia-chart', 'rgb(36, 89, 83)');
+  initializeGraph('bacteria_graph', '/sensor/bacteria', 'bacteria-chart', 'rgb(36, 89, 83)');
+  initializeGraph('purifier_graph', '/actuator/purifier', 'purifier-chart', 'rgb(36, 89, 83)');
+
+  initializeGraph('humidity_graph', '/sensor/humidity', 'humidity-chart', 'rgb(36, 89, 83)');
+  initializeGraph('ozone_graph', '/sensor/ozone', 'ozone-chart', 'rgb(36, 89, 83)');
+  initializeGraph('gas_graph', '/sensor/gas', 'gas-chart', 'rgb(36, 89, 83)');
+  initializeGraph('misting_graph', '/actuator/misting', 'misting-chart', 'rgb(36, 89, 83)');
+
+  initializeGraph('fat_graph', '/sensor/fat', 'fat-chart', 'rgb(36, 89, 83)');
+  initializeGraph('impedance_graph', '/sensor/impedance', 'impedance-chart', 'rgb(36, 89, 83)');
+  initializeGraph('ph_graph', '/sensor/ph', 'ph-chart', 'rgb(36, 89, 83)');
+  initializeGraph('vinegar_graph', '/actuator/vinegar', 'vinegar-chart', 'rgb(36, 89, 83)');
+
+  initializeGraph('moisture_graph', '/sensor/moisture', 'moisture-chart', 'rgb(36, 89, 83)');
+  initializeGraph('texture_graph', '/sensor/texture', 'texture-chart', 'rgb(36, 89, 83)');
+  initializeGraph('density_graph', '/sensor/density', 'density-chart', 'rgb(36, 89, 83)');
+  initializeGraph('heater_graph', '/actuator/heater', 'heater-chart', 'rgb(36, 89, 83)');
+
+  initializeGraph('activity_graph', '/sensor/activity', 'activity-chart', 'rgb(36, 89, 83)');
+  initializeGraph('ethylene_graph', '/sensor/ethylene', 'ethylene-chart', 'rgb(36, 89, 83)');
+  initializeGraph('temperature_graph', '/sensor/temperature', 'temperature-chart', 'rgb(36, 89, 83)');
+  initializeGraph('growlight_graph', '/actuator/growlight', 'growlight-chart', 'rgb(36, 89, 83)');
+
+  initializeGraph('weight_graph', '/sensor/weight', 'weight-chart', 'rgb(36, 89, 83)');
+  initializeGraph('maturity_graph', '/sensor/maturity', 'maturity-chart', 'rgb(36, 89, 83)');
+  initializeGraph('ripeness_graph', '/sensor/ripeness', 'ripeness-chart', 'rgb(36, 89, 83)');
+  initializeGraph('humidifier_graph', '/actuator/humidifier', 'humidifier-chart', 'rgb(36, 89, 83)');
+
+  initializeGraph('soil_graph', '/sensor/soil', 'soil-chart', 'rgb(36, 89, 83)');
+  initializeGraph('uv_graph', '/sensor/uv', 'uv-chart', 'rgb(36, 89, 83)');
+  initializeGraph('wind_graph', '/sensor/wind', 'wind-chart', 'rgb(36, 89, 83)');
+  initializeGraph('hvac_graph', '/actuator/hvac', 'hvac-chart', 'rgb(36, 89, 83)');
+
+  initializeGraph('noise_graph', '/sensor/noise', 'noise-chart', 'rgb(36, 89, 83)');
+  initializeGraph('turnover_graph', '/sensor/turnover', 'turnover-chart', 'rgb(36, 89, 83)');
+  initializeGraph('wait_graph', '/sensor/wait', 'wait-chart', 'rgb(36, 89, 83)');
+  initializeGraph('sales_graph', '/actuator/sales', 'sales-chart', 'rgb(36, 89, 83)');
+
+  initializeGraph('smell_graph', '/sensor/smell', 'smell-chart', 'rgb(36, 89, 83)');
+  initializeGraph('co2_graph', '/sensor/co2', 'co2-chart', 'rgb(36, 89, 83)');
+  initializeGraph('dish_graph', '/sensor/dish', 'dish-chart', 'rgb(36, 89, 83)');
+  initializeGraph('customer_graph', '/actuator/customer', 'customer-chart', 'rgb(36, 89, 83)');
+
+  initializeGraph('power_graph', '/actuator/power', 'power-chart', 'rgb(36, 89, 83)');
+  initializeGraph('harvest_graph', '/actuator/harvest', 'harvest-chart', 'rgb(36, 89, 83)');
+  initializeGraph('stock_graph', '/actuator/stock', 'stock-chart', 'rgb(36, 89, 83)');
+  initializeGraph('performance_graph', '/actuator/performance', 'performance-chart', 'rgb(36, 89, 83)');
+
   setInterval(function(){
     updateSensorValue('/sensor/yolk', 'yolk');
     updateSensorValue('/sensor/ammonia', 'ammonia');
@@ -228,7 +443,7 @@
     updateSensorValue('/sensor/humidity', 'humidity');
     updateSensorValue('/sensor/ozone', 'ozone');
     updateSensorValue('/sensor/gas', 'gas');
-    updateActuatorState('/actuator/fan', 'misting');
+    updateActuatorState('/actuator/misting', 'misting');
 
     updateSensorValue('/sensor/fat', 'fat');
     updateSensorValue('/sensor/impedance', 'impedance');
@@ -264,6 +479,14 @@
     updateSensorValue('/sensor/co2', 'co2');
     updateSensorValue('/sensor/dish', 'dish');
     updateActuatorState('/actuator/customer', 'customer');
+
+    updateActuatorState('/actuator/power', 'power');
+    updateActuatorState('/actuator/harvest', 'harvest');
+    updateActuatorState('/actuator/stock', 'stock');
+    updateActuatorState('/actuator/performance', 'performance');
+
+
+    updateGraph('yolk_graph', '/sensor/yolk');
   }, 2000);
 
 </script>

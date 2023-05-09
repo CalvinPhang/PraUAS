@@ -11,10 +11,21 @@ from .models import Sensor, SensorLog, Actuator, ActuatorLog
 
 class SensorTemplateView(APIView):
     sensor_name = ""
+    graph_name = ""
     def get(self, request, format=None):
         sensor = Sensor.objects.get(name=self.sensor_name)
+        raw_data = reversed(SensorLog.objects.filter(name__name__exact=self.sensor_name).order_by('-id')[:10])
+        time_data = []
+        log_data = []
+        chart_label = self.graph_name
+        for log in raw_data:
+            time_data.append(log.time.strftime("%x %X"))
+            log_data.append(log.value)
         data = {
-            "value": sensor.value
+            "value": sensor.value,
+            "time_data": time_data,
+            "chart_data": log_data,
+            "chart_label": chart_label
         }
         return Response(data)
 
@@ -24,6 +35,7 @@ class ActuatorTemplateView(APIView):
     sensor2_name = ""
     sensor3_name = ""
     model = ""
+    graph_name = ""
     def get(self, request, format=None):
         actuator = Actuator.objects.get(name=self.actuator_name)
         sensor1 = Sensor.objects.get(name=self.sensor1_name)
@@ -32,8 +44,54 @@ class ActuatorTemplateView(APIView):
         prediction = self.model.predict([float(sensor1.value), float(sensor2.value), float(sensor3.value)])
         actuator.state = int(prediction)
         actuator.save()
+        actuator_log = ActuatorLog(name=actuator, state=actuator.state)
+        actuator_log.save()
+        
+        raw_data = reversed(ActuatorLog.objects.filter(name__name__exact=self.actuator_name).order_by('-id')[:10])
+        time_data = []
+        log_data = []
+        chart_label = self.graph_name
+        for log in raw_data:
+            time_data.append(log.time.strftime("%x %X"))
+            log_data.append(log.state)
         data = {
-            "state": actuator.state
+            "state": actuator.state,
+            "time_data": time_data,
+            "chart_data": log_data,
+            "chart_label": chart_label
+        }
+        return Response(data)
+
+class ActuatorFromActuatorTemplateView(APIView):
+    actuator_name = ""
+    actuator1_name = ""
+    actuator2_name = ""
+    actuator3_name = ""
+    model = ""
+    graph_name = ""
+    def get(self, request, format=None):
+        actuator = Actuator.objects.get(name=self.actuator_name)
+        actuator1 = Actuator.objects.get(name=self.actuator1_name)
+        actuator2 = Actuator.objects.get(name=self.actuator2_name)
+        actuator3 = Actuator.objects.get(name=self.actuator3_name)
+        prediction = self.model.predict([float(actuator1.state), float(actuator2.state), float(actuator3.state)])
+        actuator.state = int(prediction)
+        actuator.save()
+        actuator_log = ActuatorLog(name=actuator, state=actuator.state)
+        actuator_log.save()
+        
+        raw_data = reversed(ActuatorLog.objects.filter(name__name__exact=self.actuator_name).order_by('-id')[:10])
+        time_data = []
+        log_data = []
+        chart_label = self.graph_name
+        for log in raw_data:
+            time_data.append(log.time.strftime("%x %X"))
+            log_data.append(log.state)
+        data = {
+            "state": actuator.state,
+            "time_data": time_data,
+            "chart_data": log_data,
+            "chart_label": chart_label
         }
         return Response(data)
 
@@ -202,3 +260,32 @@ class CustomerView(ActuatorTemplateView):
     sensor2_name = "CO2 Concentration"
     sensor3_name = "Dishwashing Frequency"
     model = mlmodel.customer_model
+    
+    
+class PowerView(ActuatorFromActuatorTemplateView):
+    actuator_name = "Powermeter"
+    actuator1_name = "Air Purifier"
+    actuator2_name = "Water Misting"
+    actuator3_name = "Vinegar Sprayer"
+    model = mlmodel.power_model
+    
+class HarvestView(ActuatorFromActuatorTemplateView):
+    actuator_name = "Harvest Rate"
+    actuator1_name = "Infrared Heater"
+    actuator2_name = "LED Grow Light"
+    actuator3_name = "Humidifier"
+    model = mlmodel.harvest_model
+    
+class StockView(ActuatorFromActuatorTemplateView):
+    actuator_name = "Stock Price"
+    actuator1_name = "HVAC"
+    actuator2_name = "Estimated Sales"
+    actuator3_name = "Number Of Customers"
+    model = mlmodel.stocks_model
+    
+class PerformanceView(ActuatorFromActuatorTemplateView):
+    actuator_name = "Overall Performance"
+    actuator1_name = "Powermeter"
+    actuator2_name = "Harvest Rate"
+    actuator3_name = "Stock Price"
+    model = mlmodel.performance_model
