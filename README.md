@@ -11,15 +11,16 @@ Tugas PraUAS Mata Kuliah Pemrograman Berbasis Web untuk IoT
     - beautify node-red ui
     - machine learning untuk tiap subsystem (untuk aktuator pabrik dan aktuator yang mengambil input dari ketiga aktuator pabrik masih dipikirkan)
     - Django UI
+    - Grafik di Django UI
     ![](node_red_dashboard.png)
     ![](node_red_pabrik_1.png)
     ![](node_red_pabrik_2.png)
     ![](node_red_pabrik_3.png)
-    ![](django_ui.png)
+    ![](django_ui_grafik.png)
 2. Apa saja kendala yang dihadapi?
-    - Mencari UI yang enak dilihat dan simpel diimplementasi
+    - Implementasi chart js dan menyesuaikan data yang didapatkan dari view
 3. Apa yang sudah dilakukan untuk mengatasi kendala tersebut?
-    - cari di internet via pinterest, dribbble
+    - cari di internet
 4. Apa rencana yang akan dikerjakan berikutnya?
-    - Django UI
+    - Tidak ada
 

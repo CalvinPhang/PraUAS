@@ -22,6 +22,11 @@
     <img src="{% static 'IEE.png' %}" style="float: right; height: 75px; margin-right: 40px;">
     <h1 style="color: white"><b>Factory System Dashboard</b></h1>
     <h2 style="color: white">Perfomance: <span id="performance"></span>/10</h2>
+    <div class="row" style="display: flex; justify-content: center;">
+      <div class="col-md-3" style="background-color: #D8D8D8; border-radius: 10px;">
+        <canvas id="performance-chart"></canvas>
+      </div>
+    </div>
   </center>
 
 
@@ -31,6 +36,11 @@
     <center>
       <h1 style="color: white">Smart Farm</h1>
       <h3 style="color: white">Power: <span id="power"></span> kWh</h3>
+      <div class="row" style="display: flex; justify-content: center;">
+        <div class="col-md-3" style="background-color: #D8D8D8; border-radius: 10px;">
+          <canvas id="power-chart"></canvas>
+        </div>
+      </div>
     </center>
     <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
       <div><center><h2>Susu Hewani dan Telur</h2></center></div>
@@ -99,6 +109,11 @@
     <center>
       <h1 style="color: white">Smart Plantation</h1>
       <h3 style="color: white">Hasil Panen: <span id="harvest"></span> ton/hari</h3>
+      <div class="row" style="display: flex; justify-content: center;">
+        <div class="col-md-3" style="background-color: #D8D8D8; border-radius: 10px;">
+          <canvas id="harvest-chart"></canvas>
+        </div>
+      </div>
     </center>
     <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
       <div><center><h2>Sumber Karbohidrat</h2></center></div>
@@ -169,8 +184,13 @@
     <center>
       <h1 style="color: white">Smart Restaurant</h1>
       <h3 style="color: white">Harga Saham: <span id="stock"></span> rupiah</h3>
+      <div class="row" style="display: flex; justify-content: center;">
+        <div class="col-md-3" style="background-color: #D8D8D8; border-radius: 10px;">
+          <canvas id="stock-chart"></canvas>
+        </div>
+      </div>
     </center>
-    <div class="row" style="border-radius: 10px; margin: 10px;background-color: #D8D8D8;">
+    <div class="row" style="border-radius: 10px; margin: 10px; background-color: #D8D8D8;">
       <div><center><h2>Deteksi Musim</h2></center></div>
       <div class="col-md-3">
         <h3>Soil moisture: <span id="soil"></span> %</h3>
@@ -185,7 +205,7 @@
         <canvas id="wind-chart"></canvas>
       </div>
       <div class="col-md-3">
-        <h3>HVAC: <span id="hvac"></span> m<sup>3</sup> %</h3>
+        <h3>HVAC: <span id="hvac"></span> %</h3>
         <canvas id="hvac-chart"></canvas>
       </div> 
     </div>
@@ -384,55 +404,55 @@
   var stock_graph;
   var performance_graph;
 
-  initializeGraph('yolk_graph', '/sensor/yolk', 'yolk-chart', 'rgb(36, 89, 83)');
-  initializeGraph('ammonia_graph', '/sensor/ammonia', 'ammonia-chart', 'rgb(36, 89, 83)');
-  initializeGraph('bacteria_graph', '/sensor/bacteria', 'bacteria-chart', 'rgb(36, 89, 83)');
-  initializeGraph('purifier_graph', '/actuator/purifier', 'purifier-chart', 'rgb(36, 89, 83)');
+  initializeGraph('yolk_graph', '/sensor/yolk', 'yolk-chart', 'rgb(12, 19, 79)');
+  initializeGraph('ammonia_graph', '/sensor/ammonia', 'ammonia-chart', 'rgb(29, 38, 125)');
+  initializeGraph('bacteria_graph', '/sensor/bacteria', 'bacteria-chart', 'rgb(92, 70, 156)');
+  initializeGraph('purifier_graph', '/actuator/purifier', 'purifier-chart', 'rgb(19, 0, 90)');
 
-  initializeGraph('humidity_graph', '/sensor/humidity', 'humidity-chart', 'rgb(36, 89, 83)');
-  initializeGraph('ozone_graph', '/sensor/ozone', 'ozone-chart', 'rgb(36, 89, 83)');
-  initializeGraph('gas_graph', '/sensor/gas', 'gas-chart', 'rgb(36, 89, 83)');
-  initializeGraph('misting_graph', '/actuator/misting', 'misting-chart', 'rgb(36, 89, 83)');
+  initializeGraph('humidity_graph', '/sensor/humidity', 'humidity-chart', 'rgb(113, 73, 198)');
+  initializeGraph('ozone_graph', '/sensor/ozone', 'ozone-chart', 'rgb(252, 41, 71)');
+  initializeGraph('gas_graph', '/sensor/gas', 'gas-chart', 'rgb(254, 98, 68)');
+  initializeGraph('misting_graph', '/actuator/misting', 'misting-chart', 'rgb(28, 130, 173)');
 
-  initializeGraph('fat_graph', '/sensor/fat', 'fat-chart', 'rgb(36, 89, 83)');
-  initializeGraph('impedance_graph', '/sensor/impedance', 'impedance-chart', 'rgb(36, 89, 83)');
-  initializeGraph('ph_graph', '/sensor/ph', 'ph-chart', 'rgb(36, 89, 83)');
-  initializeGraph('vinegar_graph', '/actuator/vinegar', 'vinegar-chart', 'rgb(36, 89, 83)');
+  initializeGraph('fat_graph', '/sensor/fat', 'fat-chart', 'rgb(25, 24, 37)');
+  initializeGraph('impedance_graph', '/sensor/impedance', 'impedance-chart', 'rgb(134, 93, 255)');
+  initializeGraph('ph_graph', '/sensor/ph', 'ph-chart', 'rgb(227, 132, 255)');
+  initializeGraph('vinegar_graph', '/actuator/vinegar', 'vinegar-chart', 'rgb(0, 51, 124)');
 
-  initializeGraph('moisture_graph', '/sensor/moisture', 'moisture-chart', 'rgb(36, 89, 83)');
-  initializeGraph('texture_graph', '/sensor/texture', 'texture-chart', 'rgb(36, 89, 83)');
-  initializeGraph('density_graph', '/sensor/density', 'density-chart', 'rgb(36, 89, 83)');
-  initializeGraph('heater_graph', '/actuator/heater', 'heater-chart', 'rgb(36, 89, 83)');
+  initializeGraph('moisture_graph', '/sensor/moisture', 'moisture-chart', 'rgb(55, 48, 107)');
+  initializeGraph('texture_graph', '/sensor/texture', 'texture-chart', 'rgb(102, 52, 127)');
+  initializeGraph('density_graph', '/sensor/density', 'density-chart', 'rgb(158, 71, 132)');
+  initializeGraph('heater_graph', '/actuator/heater', 'heater-chart', 'rgb(210, 118, 133)');
 
-  initializeGraph('activity_graph', '/sensor/activity', 'activity-chart', 'rgb(36, 89, 83)');
-  initializeGraph('ethylene_graph', '/sensor/ethylene', 'ethylene-chart', 'rgb(36, 89, 83)');
-  initializeGraph('temperature_graph', '/sensor/temperature', 'temperature-chart', 'rgb(36, 89, 83)');
-  initializeGraph('growlight_graph', '/actuator/growlight', 'growlight-chart', 'rgb(36, 89, 83)');
+  initializeGraph('activity_graph', '/sensor/activity', 'activity-chart', 'rgb(22, 33, 62)');
+  initializeGraph('ethylene_graph', '/sensor/ethylene', 'ethylene-chart', 'rgb(15, 52, 96)');
+  initializeGraph('temperature_graph', '/sensor/temperature', 'temperature-chart', 'rgb(83, 52, 131)');
+  initializeGraph('growlight_graph', '/actuator/growlight', 'growlight-chart', 'rgb(233, 69, 96)');
 
-  initializeGraph('weight_graph', '/sensor/weight', 'weight-chart', 'rgb(36, 89, 83)');
-  initializeGraph('maturity_graph', '/sensor/maturity', 'maturity-chart', 'rgb(36, 89, 83)');
-  initializeGraph('ripeness_graph', '/sensor/ripeness', 'ripeness-chart', 'rgb(36, 89, 83)');
-  initializeGraph('humidifier_graph', '/actuator/humidifier', 'humidifier-chart', 'rgb(36, 89, 83)');
+  initializeGraph('weight_graph', '/sensor/weight', 'weight-chart', 'rgb(55, 48, 107)');
+  initializeGraph('maturity_graph', '/sensor/maturity', 'maturity-chart', 'rgb(102, 52, 127)');
+  initializeGraph('ripeness_graph', '/sensor/ripeness', 'ripeness-chart', 'rgb(158, 71, 132)');
+  initializeGraph('humidifier_graph', '/actuator/humidifier', 'humidifier-chart', 'rgb(210, 118, 133)');
 
-  initializeGraph('soil_graph', '/sensor/soil', 'soil-chart', 'rgb(36, 89, 83)');
-  initializeGraph('uv_graph', '/sensor/uv', 'uv-chart', 'rgb(36, 89, 83)');
-  initializeGraph('wind_graph', '/sensor/wind', 'wind-chart', 'rgb(36, 89, 83)');
-  initializeGraph('hvac_graph', '/actuator/hvac', 'hvac-chart', 'rgb(36, 89, 83)');
+  initializeGraph('soil_graph', '/sensor/soil', 'soil-chart', 'rgb(70, 36, 76)');
+  initializeGraph('uv_graph', '/sensor/uv', 'uv-chart', 'rgb(113, 43, 117)');
+  initializeGraph('wind_graph', '/sensor/wind', 'wind-chart', 'rgb(199, 75, 80)');
+  initializeGraph('hvac_graph', '/actuator/hvac', 'hvac-chart', 'rgb(212, 155, 84)');
 
-  initializeGraph('noise_graph', '/sensor/noise', 'noise-chart', 'rgb(36, 89, 83)');
-  initializeGraph('turnover_graph', '/sensor/turnover', 'turnover-chart', 'rgb(36, 89, 83)');
-  initializeGraph('wait_graph', '/sensor/wait', 'wait-chart', 'rgb(36, 89, 83)');
-  initializeGraph('sales_graph', '/actuator/sales', 'sales-chart', 'rgb(36, 89, 83)');
+  initializeGraph('noise_graph', '/sensor/noise', 'noise-chart', 'rgb(25, 26, 25)');
+  initializeGraph('turnover_graph', '/sensor/turnover', 'turnover-chart', 'rgb(30, 81, 40)');
+  initializeGraph('wait_graph', '/sensor/wait', 'wait-chart', 'rgb(78, 159, 61)');
+  initializeGraph('sales_graph', '/actuator/sales', 'sales-chart', 'rgb(3, 201, 136)');
 
-  initializeGraph('smell_graph', '/sensor/smell', 'smell-chart', 'rgb(36, 89, 83)');
-  initializeGraph('co2_graph', '/sensor/co2', 'co2-chart', 'rgb(36, 89, 83)');
-  initializeGraph('dish_graph', '/sensor/dish', 'dish-chart', 'rgb(36, 89, 83)');
-  initializeGraph('customer_graph', '/actuator/customer', 'customer-chart', 'rgb(36, 89, 83)');
+  initializeGraph('smell_graph', '/sensor/smell', 'smell-chart', 'rgb(154, 6, 128)');
+  initializeGraph('co2_graph', '/sensor/co2', 'co2-chart', 'rgb(121, 1, 140)');
+  initializeGraph('dish_graph', '/sensor/dish', 'dish-chart', 'rgb(76, 0, 112)');
+  initializeGraph('customer_graph', '/actuator/customer', 'customer-chart', 'rgb(22, 0, 64)');
 
-  initializeGraph('power_graph', '/actuator/power', 'power-chart', 'rgb(36, 89, 83)');
-  initializeGraph('harvest_graph', '/actuator/harvest', 'harvest-chart', 'rgb(36, 89, 83)');
-  initializeGraph('stock_graph', '/actuator/stock', 'stock-chart', 'rgb(36, 89, 83)');
-  initializeGraph('performance_graph', '/actuator/performance', 'performance-chart', 'rgb(36, 89, 83)');
+  initializeGraph('power_graph', '/actuator/power', 'power-chart', 'rgb(139, 24, 116)');
+  initializeGraph('harvest_graph', '/actuator/harvest', 'harvest-chart', 'rgb(183, 19, 117)');
+  initializeGraph('stock_graph', '/actuator/stock', 'stock-chart', 'rgb(252, 79, 0)');
+  initializeGraph('performance_graph', '/actuator/performance', 'performance-chart', 'rgb(247, 149, 64)');
 
   setInterval(function(){
     updateSensorValue('/sensor/yolk', 'yolk');
@@ -487,6 +507,54 @@
 
 
     updateGraph('yolk_graph', '/sensor/yolk');
+    updateGraph('ammonia_graph', '/sensor/ammonia');
+    updateGraph('bacteria_graph', '/sensor/bacteria');
+    updateGraph('purifier_graph', '/actuator/purifier');
+
+    updateGraph('humidity_graph', '/sensor/humidity');
+    updateGraph('ozone_graph', '/sensor/ozone');
+    updateGraph('gas_graph', '/sensor/gas');
+    updateGraph('misting_graph', '/actuator/misting');
+
+    updateGraph('fat_graph', '/sensor/fat');
+    updateGraph('impedance_graph', '/sensor/impedance');
+    updateGraph('ph_graph', '/sensor/ph');
+    updateGraph('vinegar_graph', '/actuator/vinegar');
+
+    updateGraph('moisture_graph', '/sensor/moisture');
+    updateGraph('texture_graph', '/sensor/texture');
+    updateGraph('density_graph', '/sensor/density');
+    updateGraph('heater_graph', '/actuator/heater');
+
+    updateGraph('activity_graph', '/sensor/activity');
+    updateGraph('ethylene_graph', '/sensor/ethylene');
+    updateGraph('temperature_graph', '/sensor/temperature');
+    updateGraph('growlight_graph', '/actuator/growlight');
+
+    updateGraph('weight_graph', '/sensor/weight');
+    updateGraph('maturity_graph', '/sensor/maturity');
+    updateGraph('ripeness_graph', '/sensor/ripeness');
+    updateGraph('humidifier_graph', '/actuator/humidifier');
+
+    updateGraph('soil_graph', '/sensor/soil');
+    updateGraph('uv_graph', '/sensor/uv');
+    updateGraph('wind_graph', '/sensor/wind');
+    updateGraph('hvac_graph', '/actuator/hvac');
+
+    updateGraph('noise_graph', '/sensor/noise');
+    updateGraph('turnover_graph', '/sensor/turnover');
+    updateGraph('wait_graph', '/sensor/wait');
+    updateGraph('sales_graph', '/actuator/sales');
+
+    updateGraph('smell_graph', '/sensor/smell');
+    updateGraph('co2_graph', '/sensor/co2');
+    updateGraph('dish_graph', '/sensor/dish');
+    updateGraph('customer_graph', '/actuator/customer');
+
+    updateGraph('power_graph', '/actuator/power');
+    updateGraph('harvest_graph', '/actuator/harvest');
+    updateGraph('stock_graph', '/actuator/stock');
+    updateGraph('performance_graph', '/actuator/performance');
   }, 2000);
 
 </script>
